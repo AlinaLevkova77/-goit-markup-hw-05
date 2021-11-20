@@ -411,22 +411,13 @@
     <button class="button-modal" data-modal-close="">Закрыть</button>
 </div>
 </div>
-
-<button class="data-modal-close"></button>
-<script src="./js/modal.js">{
-    const refs = {
-            openModalBtn: document.querySelector("[data-modal-open]"),
-            closeModalBtn: document.querySelector("[data-modal-close]"),
-            modal: document.querySelector("[data-modal]"),
-        };
-
-        refs.openModalBtn.addEventListener("click", toggleModal);
-        refs.closeModalBtn.addEventListener("click", toggleModal);
-
-        function toggleModal() {
-            refs.modal.classList.toggle("is-hidden");
-        }
-    }
-</script>
+<!-- <div class="icon-modal">
+    <svg class="icon-close">
+        <use href="./images/icons.svg#icon-close"></use>
+    </svg>
+</div> -->
+<button class="data-modal-close">
+</button>
+<script src="./js/modal.js"></script>
 </body>
 </html>
