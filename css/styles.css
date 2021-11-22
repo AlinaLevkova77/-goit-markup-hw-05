@@ -11,6 +11,7 @@
   --bg-color-features-img--: rgba(47, 48, 58, 0.8);
   --flex-element-gar: 30px;
   --minus-element-gar: -30px;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -125,7 +126,7 @@ img {
 .link {
   padding-top: 32px;
   padding-bottom: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--timing-function);
 }
 .contacts-list {
   display: flex;
@@ -373,8 +374,8 @@ img {
   border-radius: 50%;
   color: var(--icon-grey-color--);
   background-color: rgba(255, 255, 255, 0.1);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 }
 .social-item:hover,
 .social-item:focus {
@@ -420,8 +421,8 @@ img {
   border: 1px solid var(--icon-grey-color--);
   border-radius: 4px;
   fill: var(--icon-grey-color--);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--timing-function),
+    border 250ms var(--timing-function);
 }
 .icons-nav:hover,
 .icons-nav:focus {
@@ -471,7 +472,7 @@ img {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--timing-function);
 }
 .footer-item {
   margin-top: 20px;
@@ -512,8 +513,8 @@ img {
   font-weight: 500;
   border-radius: 4px;
   border: 0;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 
   background-color: #f5f4fa;
   color: var(--primary-black-color);
@@ -557,6 +558,7 @@ img {
 .flex-card {
   position: relative;
   overflow: hidden;
+  height: 294px;
 }
 .flex-card:hover .overlay {
   opacity: 1;
@@ -564,22 +566,24 @@ img {
 .overlay {
   position: absolute;
   bottom: 0;
+  -webkit-box-align: center;
   width: 100%;
   height: 294px;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* overflow-y: auto;
-  transform: translateY(101%); */
+  transition: background-color 250ms var(--timing-function);
+}
+.overlay ::before {
+  transform: translateY(100%);
+}
+.flex-card :hover.overlay ::before {
+  transform: translate(0);
 }
 .overlay:hover,
 .overlay :focus {
   background-color: rgba(33, 150, 243, 0.9);
 }
-.overlay ::before {
-  content: "";
-  transform: translateY(-35px);
-}
+
 .overlay-text {
   margin: 0;
   padding: 63px 24px;
@@ -619,19 +623,59 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  visibility: visible;
+  transition: visibility 250ms var(--timing-function);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  transition-property: opasity, transition-duration, transition-timing-function;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
 }
+
 .modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   min-width: 528px;
   min-height: 581px;
   background: var(--primary-white-color);
   text-align: center;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  opacity: 1;
+}
+
+.button-close {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 30px;
+  min-height: 30px;
+  margin-left: auto;
+  margin-bottom: auto;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  background-color: white;
+  color: #000000;
+  transition: color 250ms var(--timing-function);
+}
+.modal :hover,
+.modal:focus {
+  color: var(--accent-color);
+}
+.icon-close-black {
+  width: 18px;
+  height: 18px;
 }
