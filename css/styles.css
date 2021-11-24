@@ -412,11 +412,11 @@ img {
 .clients-list > .clients-link:not(:last-child) {
   margin-right: 30px;
 }
-.icons-nav :hover .icons-clients,
-.icons-nav :focus .icons-clients {
+.icons-nav:hover .icons-clients,
+.icons-nav:focus .icons-clients {
   fill: #2196f3;
 }
-.icons-nav :hover {
+.icons-nav:hover {
   border: 1px solid #2196f3;
 }
 .icons-nav {
