@@ -412,9 +412,11 @@ img {
 .clients-list > .clients-link:not(:last-child) {
   margin-right: 30px;
 }
-.icons-nav :hover,
-.icons-nav :focus {
+.icons-nav :hover .icons-clients,
+.icons-nav :focus .icons-clients {
   fill: #2196f3;
+}
+.icons-nav :hover {
   border: 1px solid #2196f3;
 }
 .icons-nav {
@@ -435,10 +437,6 @@ img {
   height: 60px;
   color: currentColor;
 }
-/* .icons-clients:hover,
-.icons-clients:focus {
-  fill: var(--accent-color);
-} */
 
 /***************Footer **************/
 .footer {
@@ -673,8 +671,8 @@ img {
   color: #000000;
   transition: color 250ms var(--timing-function);
 }
-.icon-close-black :hover,
-.icon-close-black:focus {
+.button-close:hover .icon-close-black,
+.button-close:focus .icon-close-black {
   fill: var(--accent-color);
 }
 .icon-close-black {
