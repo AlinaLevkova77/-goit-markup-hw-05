@@ -215,7 +215,7 @@ img {
   border: 1px solid transparent;
   font-weight: 700;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.87;
   letter-spacing: 0.06em;
 }
 /******************Sections*************/
@@ -412,6 +412,10 @@ img {
 .clients-list > .clients-link:not(:last-child) {
   margin-right: 30px;
 }
+.icons-nav :hover,
+.icons-nav :focus {
+  fill: #2196f3;
+}
 .icons-nav {
   display: flex;
   align-items: center;
@@ -424,18 +428,16 @@ img {
   transition: color 250ms var(--timing-function),
     border 250ms var(--timing-function);
 }
-.icons-nav:hover,
-.icons-nav:focus {
-  border: 1px solid #2196f3;
-}
+
 .icons-clients {
   width: 106px;
   height: 60px;
+  color: currentColor;
 }
-.icons-clients:hover,
+/* .icons-clients:hover,
 .icons-clients:focus {
   fill: var(--accent-color);
-}
+} */
 
 /***************Footer **************/
 .footer {
@@ -597,9 +599,11 @@ img {
   height: 294px;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
-  background-color: var(--accent-color);
   transform: translateY(100%);
-  transition: transform 250ms var(--timing-function);
+  transition-property: opacity, transform, -webkit-transform;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
+  overflow-y: auto;
 }
 
 .overlay-text {
